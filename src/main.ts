@@ -1,13 +1,13 @@
 /* eslint-disable prettier/prettier */
-// import { NestFactory } from '@nestjs/core';
-// import { AppModule } from './app.module';
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
 
-// async function bootstrap() {
-//   const app = await NestFactory.create(AppModule);
-//   app.enableCors();
-//   await app.listen(3000);
-// }
-// bootstrap();
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  app.enableCors();
+  await app.listen(process.env.port || 3000);
+}
+bootstrap();
 
 
 // import { NestFactory } from '@nestjs/core';
@@ -35,24 +35,24 @@
 // export const api = functions.https.onRequest(server)
 
 
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
-import serverlessExpress from '@vendia/serverless-express'
-import { Handler,Context, Callback } from 'aws-lambda';
-let  server : Handler
-async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  app.enableCors();
-  await app.init();
-  const expressapp = app.getHttpAdapter().getInstance();
-  return serverlessExpress({app: expressapp});
-}
+// import { NestFactory } from '@nestjs/core';
+// import { AppModule } from './app.module';
+// import serverlessExpress from '@vendia/serverless-express'
+// import { Handler,Context, Callback } from 'aws-lambda';
+// let  server : Handler
+// async function bootstrap() {
+//   const app = await NestFactory.create(AppModule);
+//   app.enableCors();
+//   await app.init();
+//   const expressapp = app.getHttpAdapter().getInstance();
+//   return serverlessExpress({app: expressapp});
+// }
 
-export const handler : Handler = async (
-event :any,
-context :Context,
-callback: Callback,
-) => {
-     server = server ?? (await bootstrap()) 
-return server(event,context,callback)
-}
+// export const handler : Handler = async (
+// event :any,
+// context :Context,
+// callback: Callback,
+// ) => {
+//      server = server ?? (await bootstrap()) 
+// return server(event,context,callback)
+// }
