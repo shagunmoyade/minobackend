@@ -16,7 +16,7 @@ server: Server
   getuser(res) {
     this.authModel
       .find({})
-      .sort(this.mysort)
+      .sort({ createAt: -1 })
       .then((Data) => {
         if (Data) {
           const dashbardCount = {
