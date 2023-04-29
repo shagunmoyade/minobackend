@@ -12,7 +12,7 @@ import { NotificationsModule } from './notifications/notifications.module';
 import { ChatModule } from './chat/chat.module';
 
 @Module({
-  imports: [AuthModule, MongooseModule.forRoot('mongodb://localhost/minodb'), ActionModule, TodoModule, GatewayModule, FriendsModule, NotificationsModule, ChatModule],
+  imports: [AuthModule, MongooseModule.forRoot('mongodb+srv://shagunmoyade:9k66dW8pwap1L7vj@cluster0.bf5jiet.mongodb.net/test'), ActionModule, TodoModule, GatewayModule, FriendsModule, NotificationsModule, ChatModule],
   controllers: [AppController],
   providers: [AppService],
 })
